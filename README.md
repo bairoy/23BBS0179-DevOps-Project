@@ -199,16 +199,6 @@ python3 monitoring/generate_live_metrics.py
 * Check **Services** view confirming HTTP connectivity reports **OK** (HTTP 200).
 
 ---
-
-## 📄 Automated Word Document Generator
-
-This project includes an automated Python script (`generate_docx_report.py`) that compiles the official submission document:
-```bash
-python3 generate_docx_report.py
-```
-* **Output:** Generates `Assignment_2_Submission_Report.docx` (~12.1 MB).
-* **Contents:** Features styled headings, student metadata tables, command boxes, and embeds all 22+ high-resolution screenshots from the `screenshots/` directory with detailed figure descriptions.
-
 ---
 
 ## 📜 License & Academic Integrity
