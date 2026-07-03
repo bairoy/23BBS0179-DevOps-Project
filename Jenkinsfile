@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        PATH = "/usr/local/bin:/opt/homebrew/bin:$PATH"
         IMAGE_NAME = 'abc-tech-website'
         IMAGE_TAG  = 'latest'
         CONTAINER_PORT = '80'
