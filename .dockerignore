@@ -1,0 +1,19 @@
+# Git directory
+.git
+.gitignore
+
+# Kubernetes manifests & CI/CD pipeline definitions (not needed inside web container)
+k8s/
+Jenkinsfile
+
+# Monitoring scripts and compose stacks
+monitoring/
+
+# Documentation and PDF reports
+README.md
+SUBMISSION_REPORT_GUIDE.md
+*.pdf
+*.docx
+
+# OS specific files
+.DS_Store

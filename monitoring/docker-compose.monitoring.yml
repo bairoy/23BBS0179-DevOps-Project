@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  # 1. Graphite & StatsD (Metrics Storage & UI)
+  graphite:
+    image: graphiteapp/graphite-statsd:latest
+    container_name: devops-graphite
+    restart: always
+    ports:
+      - "8085:80" # Graphite Web Dashboard (Access via http://localhost:8085)
+      - "2003:2003" # Carbon Line Receiver (TCP metric intake)
+      - "8125:8125/udp" # StatsD UDP receiver
+    environment:
+      - GRAPHITE_TIME_ZONE=UTC
+
+  # 2. Grafana (Dashboard Visualization)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: devops-grafana
+    restart: always
+    ports:
+      - "3000:3000" # Grafana Dashboard (Access via http://localhost:3000 | admin/admin)
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-clock-panel
+    depends_on:
+      - graphite
+
+  # 3. Nagios (Uptime & HTTP Service Monitoring)
+  nagios:
+    image: jasonrivers/nagios:latest
+    container_name: devops-nagios
+    restart: always
+    ports:
+      - "8083:80" # Nagios Web Interface (Access via http://localhost:8083 | nagiosadmin/nagios)
+    environment:
+      - NAGIOSADMIN_USER=nagiosadmin
+      - NAGIOSADMIN_PASS=nagios

@@ -1,0 +1,26 @@
+# OS / macOS specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python compiled bytecode & cache (from simulation scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Docker build logs and temporary containers
+*.log
+
+# Environment secrets (never commit actual .env files)
+.env
+*.env.local
+
+# Assignment PDF zip drafts or scratch archives
+*.zip
+*.tar.gz
